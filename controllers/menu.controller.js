@@ -3,7 +3,7 @@ import Menu from "../models/menuItem.model.js";
 export const getMenu = async (req, res, next) => {
   try {
     const menu = await Menu.find({});
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "menu is fetched succesfully",
       data: menu,
@@ -20,7 +20,7 @@ export const addMenu = async (req, res, next) => {
       price: price,
       category: category,
     });
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Menu Item created succesfully",
       data: newItem,
@@ -47,7 +47,7 @@ export const updateMenu = async (req, res, next) => {
       throw error;
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "item updated successfully",
       data: updatedItem,
@@ -65,7 +65,7 @@ export const deleteItem = async (req, res, next) => {
       error.statusCode = 404;
       throw error;
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "item deleted successfully",
     });
