@@ -5,7 +5,7 @@ A RESTful backend API for managing hotel rooms and bookings, built with Node.js,
 
 The application provides the core functionality required for managing hotel rooms, creating and retrieving bookings, filtering bookings, and checking room availability based on booking dates. The project also includes centralized error handling and schema-level validation to ensure consistent API behaviour.
 
-As part of the additional functionality, models for menu items and room service have also been created. These additional features are currently at the modelling stage and have not yet been fully integrated into the API.
+As part of the additional functionality, models for menu items and room service have also been created. This allows the receptionist to create orders for a room on their partciular booking and has smart checks where it takes today's date and sees if the booking date lies in today's date and only then does it allow you to create a order. It lets you see existing orders on a particular booking and calculates their total bills. 
 
 ### How to run ?
 
@@ -22,4 +22,5 @@ for this example the main home route is considered to be [https://localhost:5050
 - /rooms/:id ~ deletes/updates/gets individual rooms on the basis of room id
 - /rooms/available ~ check available rooms within a specified timeframe and if the rooms have no booking during that period
 - /menu - create/update/delete/get all the menu items
-- /bookings - create new bookings and the bookings are derived not stored. So the checking of availability is purely based on logic by filtering the data in MongoDB's DB engine. 
+- /bookings - create new bookings and the bookings are derived not stored. So the checking of availability is purely based on logic by filtering the data in MongoDB's DB engine.
+- routes after /bookings/:id/room-service to create service orders or obtain all the current service orders/update status of the order.
